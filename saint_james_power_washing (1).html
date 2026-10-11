@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint James Power Washing | Free Quotes & Local Service</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        aqua: {
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Animations & Styling */
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-wave {
+            animation: wave 4s ease-in-out infinite;
+        }
+        
+        .water-glow {
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+        }
+        
+        /* Image Comparison Slider Custom Styling */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+        .img-comp-overlay {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #ffffff;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            z-index: 20;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background-color: #0284c7;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-water-ladder text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-black tracking-tight text-white block leading-none">ST. JAMES</span>
+                        <span class="text-xs font-semibold text-sky-400 tracking-wider uppercase">Power Washing</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#services" class="hover:text-sky-400 transition-colors">Services</a>
+                    <a href="#water-discount" class="hover:text-sky-400 transition-colors">Water Credit</a>
+                    <a href="#calculator" class="hover:text-sky-400 transition-colors">Cost Estimator</a>
+                    <a href="#gallery" class="hover:text-sky-400 transition-colors">Before & After</a>
+                    <a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="tel:5736474453" class="flex items-center gap-2 text-sky-400 font-bold hover:text-sky-300 transition-colors">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(573) 647-4453</span>
+                    </a>
+                    <a href="#quote-form" class="bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 transition-all transform hover:-translate-y-0.5">
+                        Free Quote
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Services</a>
+            <a href="#water-discount" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Water Credit Guarantee</a>
+            <a href="#calculator" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Cost Estimator</a>
+            <a href="#gallery" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">Before & After Showcase</a>
+            <a href="#faq" class="block py-2 text-slate-300 hover:text-sky-400 font-medium">FAQ</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:5736474453" class="flex items-center justify-center gap-2 bg-slate-800 text-sky-400 py-3 rounded-xl font-bold">
+                    <i class="fa-solid fa-phone"></i> (573) 647-4453
+                </a>
+                <a href="#quote-form" class="text-center bg-sky-500 text-slate-950 py-3 rounded-xl font-bold">
+                    Get A Free Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950">
+        <!-- Background Grid Effect & Water Spray Glows -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <!-- Location Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-300 text-sm font-semibold mb-8 animate-wave">
+                <i class="fa-solid fa-location-dot text-sky-400"></i>
+                <span>Serving Saint James, MO & Surrounding Areas</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Restore Your Home’s Beauty With <span class="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Pro Power Washing</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
+                Expert exterior cleaning for houses, brick, siding, sidewalks, porches, and decks in Saint James. Clean results with our fair <strong class="text-sky-300">Water Usage Credit Discount</strong>!
+            </p>
+
+            <!-- Water Discount Highlight Tag -->
+            <div class="max-w-2xl mx-auto mb-10 p-4 rounded-2xl bg-slate-800/80 border border-sky-500/30 text-slate-200 shadow-xl flex items-center justify-center gap-3">
+                <i class="fa-solid fa-droplet text-sky-400 text-2xl shrink-0"></i>
+                <p class="text-sm sm:text-base text-left">
+                    <strong class="text-white">Fair Water Policy:</strong> We use your water hookup on-site and <span class="text-sky-400 font-bold">deduct every gallon used</span> directly off your final total bill!
+                </p>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-lg shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Calculate Your Price</span>
+                </a>
+                <a href="tel:5736474453" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-lg transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone text-sky-400"></i>
+                    <span>Call (573) 647-4453</span>
+                </a>
+            </div>
+
+            <!-- Service Highlights Badges -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 text-slate-400 text-xs sm:text-sm">
+                <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check text-sky-400"></i> 100% Free Quotes
+                </div>
+                <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check text-sky-400"></i> Local St. James Pro
+                </div>
+                <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check text-sky-400"></i> Water Credit Applied
+                </div>
+                <div class="p-3 rounded-lg bg-slate-800/40 border border-slate-800 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-check text-sky-400"></i> Exterior Soft/Pressure Wash
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Water Credit Policy Section -->
+    <section id="water-discount" class="py-20 bg-slate-950 border-y border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+                
+                <div class="lg:col-span-6 mb-10 lg:mb-0">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold mb-4">
+                        <i class="fa-solid fa-hand-holding-droplet"></i> TRANSPARENT PRICING
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">
+                        How Our Water Discount Works
+                    </h2>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        Instead of hauling hundreds of gallons of heavy water in large trailers (which inflates fuel and maintenance costs passed to you), we hook up directly to your property’s water spigot. 
+                    </p>
+                    <p class="text-slate-300 mb-8 leading-relaxed">
+                        To guarantee complete fairness, <strong class="text-sky-300">we calculate estimated water usage (in gallons) for your job and automatically credit that amount directly off your final bill price!</strong>
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0 text-lg font-bold">1</div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">We Connect To Your Spigot</h3>
+                                <p class="text-sm text-slate-400">We utilize your outdoor water hookup using commercial-grade non-marking hoses.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0 text-lg font-bold">2</div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Gallons Calculated & Measured</h3>
+                                <p class="text-sm text-slate-400">Our high-efficiency commercial pressure washers use optimal water flow to get the job done fast.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center shrink-0 text-lg font-bold">3</div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Instant Bill Deduction</h3>
+                                <p class="text-sm text-slate-400">Your final quote automatically accounts for the gallons used, reducing your overall cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-800 border border-sky-500/20 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl"></div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Water Credit Example Breakdown</h3>
+                        <p class="text-sm text-slate-400 mb-6">Here is an example of how your water credit benefit works on a standard home drive or siding cleaning:</p>
+
+                        <div class="space-y-3 font-mono text-sm border-t border-b border-slate-700 py-6 mb-6">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Standard Service Estimate:</span>
+                                <span>$250.00</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Water Used (~250 Gallons):</span>
+                                <span>1.0 - 1.5 Hours</span>
+                            </div>
+                            <div class="flex justify-between text-sky-400 font-bold text-base pt-2 border-t border-slate-800">
+                                <span>Water Credit Applied:</span>
+                                <span>-$15.00 Credit</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-sky-500/10 border border-sky-500/30 rounded-xl p-4 text-center">
+                            <span class="text-xs uppercase text-sky-300 font-bold tracking-wider block mb-1">Your Adjusted Net Total</span>
+                            <span class="text-3xl font-extrabold text-white">$235.00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-sky-400 tracking-wider uppercase mb-2">Our Cleaning Services</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Power Washing For Every Surface</p>
+                <p class="text-slate-400 mt-4 text-base sm:text-lg">We safely remove dirt, algae, mold, mildew, stains, and buildup from homes and hardscapes throughout Saint James, MO.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Houses & Siding -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">House & Siding Washing</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Vinyl, soft-wash siding, stucco, and wood. Gentle low-pressure soft washing that eliminates green algae without damaging your home exterior.</p>
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full">Avg Range: $0.15 - $0.25 / sq ft</span>
+                </div>
+
+                <!-- Service 2: Sidewalks & Walkways -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Sidewalks & Walkways</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Deep concrete pressure washing to clear away slick moss, mud, oil drips, and years of grounded dirt from front paths and sidewalks.</p>
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full">Avg Range: $75 - $150 standard</span>
+                </div>
+
+                <!-- Service 3: Brick & Masonry -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-cubes-stacked"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Brickwork & Retaining Walls</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Restore the rich red and natural tone of your brick walls, steps, and exterior chimney surfaces with target pressure adjustment.</p>
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full">Avg Range: $0.20 - $0.35 / sq ft</span>
+                </div>
+
+                <!-- Service 4: Porches & Decks -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Porches & Wooden Decks</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Revitalize outdoor porch areas, wood decks, and composite decking. Prepares surfaces beautifully for stain or sealant touch-ups.</p>
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full">Avg Range: $100 - $250 standard</span>
+                </div>
+
+                <!-- Service 5: Driveways & Concrete -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Driveways & Patios</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">High-power surface cleaner scrubbing for concrete driveways, paver patios, garage floors, and outdoor entertainment zones.</p>
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full">Avg Range: $0.12 - $0.22 / sq ft</span>
+                </div>
+
+                <!-- Service 6: Custom & Commercial -->
+                <div class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 hover:border-sky-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Fences, Gutters & More</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Need clean fences, exterior gutter brightening, or commercial storefront touch-ups in Saint James? Contact us for a custom quote.</p>
+                    <span class="text-xs font-semibold text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full">Custom Free Quotes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Estimator Calculator Section -->
+    <section id="calculator" class="py-24 bg-slate-950 relative border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-semibold">INTERACTIVE ESTIMATOR</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Instant Cost & Water Credit Estimator</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">Select your surface type and square footage to view estimated price ranges with water usage credit deducted.</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Controls Side -->
+                <div class="md:col-span-7 space-y-6">
+                    
+                    <!-- Step 1: Select Surface Type -->
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-300 mb-3">1. Select Surface / Job Type</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="surface-selector">
+                            <button type="button" data-type="siding" data-rate="0.18" data-water="0.015" class="surface-btn active p-3 rounded-xl border border-sky-500 bg-sky-500/10 text-white font-medium text-xs sm:text-sm text-left transition-all">
+                                <i class="fa-solid fa-house block text-lg text-sky-400 mb-1"></i>
+                                House Siding
+                            </button>
+                            <button type="button" data-type="driveway" data-rate="0.15" data-water="0.012" class="surface-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-medium text-xs sm:text-sm text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-car block text-lg text-sky-400 mb-1"></i>
+                                Driveway / Patio
+                            </button>
+                            <button type="button" data-type="brick" data-rate="0.25" data-water="0.018" class="surface-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-medium text-xs sm:text-sm text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-cubes-stacked block text-lg text-sky-400 mb-1"></i>
+                                Brick / Stone
+                            </button>
+                            <button type="button" data-type="sidewalk" data-rate="0.20" data-water="0.015" class="surface-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-medium text-xs sm:text-sm text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-shoe-prints block text-lg text-sky-400 mb-1"></i>
+                                Sidewalks
+                            </button>
+                            <button type="button" data-type="porch" data-rate="0.22" data-water="0.014" class="surface-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-medium text-xs sm:text-sm text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-umbrella-beach block text-lg text-sky-400 mb-1"></i>
+                                Porches / Decks
+                            </button>
+                            <button type="button" data-type="combination" data-rate="0.16" data-water="0.015" class="surface-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-300 font-medium text-xs sm:text-sm text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-layer-group block text-lg text-sky-400 mb-1"></i>
+                                Multi-Surface
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Area Size Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-semibold text-slate-300">2. Estimated Area Size</label>
+                            <span class="text-sky-400 font-bold text-lg" id="sqft-display">1,200 sq ft</span>
+                        </div>
+                        <input type="range" id="sqft-slider" min="200" max="4000" step="50" value="1200" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-500">
+                        <div class="flex justify-between text-xs text-slate-500 mt-1">
+                            <span>200 sq ft (Small walkway)</span>
+                            <span>4,000 sq ft (Large Property)</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Water Discount Toggle -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-faucet-drip text-sky-400 text-xl"></i>
+                            <div>
+                                <span class="text-sm font-semibold text-white block">Apply On-Site Water Credit</span>
+                                <span class="text-xs text-slate-400">Deducts water credit from total price</span>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="water-credit-toggle" checked class="sr-only peer">
+                            <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-sky-500"></div>
+                        </label>
+                    </div>
+
+                </div>
+
+                <!-- Live Results Output Side -->
+                <div class="md:col-span-5 bg-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-4 border-b border-slate-800 pb-2">Estimated Breakdown</h3>
+                        
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Selected Surface:</span>
+                                <span class="font-semibold text-white capitalize" id="calc-surface-name">House Siding</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Estimated Base Cost:</span>
+                                <span class="font-semibold text-white" id="calc-base-price">$216.00</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Est. Water Used:</span>
+                                <span class="font-semibold text-sky-300" id="calc-gallons">~180 Gallons</span>
+                            </div>
+                            <div class="flex justify-between text-sky-400 font-semibold pt-2 border-t border-slate-800">
+                                <span>Water Credit Deduction:</span>
+                                <span id="calc-credit-amount">-$18.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-slate-800">
+                        <span class="text-xs text-slate-400 uppercase tracking-wide block mb-1">Final Estimated Price Range</span>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-white" id="calc-final-price">
+                            $178 - $218
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">*Final exact quotes subject to surface condition & access inspection.</p>
+
+                        <a href="#quote-form" id="claim-quote-btn" class="mt-6 w-full py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl flex items-center justify-center gap-2 transition-all">
+                            <span>Lock In Free Quote</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase / Gallery Section -->
+    <section id="gallery" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Visual Proof</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Interactive Before & After Showcase</h2>
+                <p class="text-slate-400 mt-3 text-sm sm:text-base">Drag the center slider on any image below to see the dramatic difference professional pressure washing makes!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Slider Example 1: Concrete Driveway -->
+                <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-car text-sky-400"></i> Concrete Driveway & Walkway Cleaning
+                    </h3>
+                    <div class="slider-container rounded-xl h-64 sm:h-80 w-full" id="slider-1">
+                        <!-- Clean Image (After) -->
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80" alt="Clean Concrete Driveway Pressure Wash" class="absolute top-0 left-0 w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 text-sky-400 text-xs font-bold px-3 py-1 rounded-full z-10">AFTER</div>
+                        
+                        <!-- Dirty Image Overlay (Before) -->
+                        <div class="img-comp-overlay" id="overlay-1">
+                            <img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1000&q=80" alt="Dirty Concrete Driveway Before" class="absolute top-0 left-0 h-full max-w-none object-cover" style="width: 100%;">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">BEFORE</div>
+                        </div>
+
+                        <!-- Handle Slider -->
+                        <div class="slider-handle" id="handle-1">
+                            <div class="slider-button">
+                                <i class="fa-solid fa-arrows-left-right text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Example 2: House Siding Soft Wash -->
+                <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700">
+                    <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-house text-sky-400"></i> Vinyl Siding Soft Wash
+                    </h3>
+                    <div class="slider-container rounded-xl h-64 sm:h-80 w-full" id="slider-2">
+                        <!-- Clean Image (After) -->
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="Clean Vinyl Siding After Soft Wash" class="absolute top-0 left-0 w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-slate-900/80 text-sky-400 text-xs font-bold px-3 py-1 rounded-full z-10">AFTER</div>
+                        
+                        <!-- Dirty Image Overlay (Before) -->
+                        <div class="img-comp-overlay" id="overlay-2">
+                            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80" alt="Dirty Vinyl Siding Before Soft Wash" class="absolute top-0 left-0 h-full max-w-none object-cover" style="width: 100%;">
+                            <div class="absolute top-3 left-3 bg-slate-900/80 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">BEFORE</div>
+                        </div>
+
+                        <!-- Handle Slider -->
+                        <div class="slider-handle" id="handle-2">
+                            <div class="slider-button">
+                                <i class="fa-solid fa-arrows-left-right text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section id="quote-form" class="py-24 bg-slate-950 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact info panel -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Get In Touch</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Request Your Free Quote Today</h2>
+                        <p class="text-slate-400 mt-3 text-base">Fill out the quick form or contact us directly. We respond promptly with free estimates for all St. James and nearby homeowners!</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <a href="tel:5736474453" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-sky-500/50 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-semibold block">Call or Text Direct</span>
+                                <span class="text-xl font-bold text-white">(573) 647-4453</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:jax2holt@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-sky-500/50 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl group-hover:bg-sky-500 group-hover:text-slate-950 transition-all">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <span class="text-xs text-slate-400 uppercase font-semibold block">Email Support</span>
+                                <span class="text-base sm:text-lg font-bold text-white truncate block">jax2holt@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase font-semibold block">Service Area</span>
+                                <span class="text-base font-bold text-white">Saint James, MO & Surrounding Phelps County</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-gradient-to-br from-sky-900/30 to-slate-900 border border-sky-500/20">
+                        <h4 class="font-bold text-white mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-sky-400"></i> Our Customer Promise
+                        </h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            No surprise fees. Clear quotes before work begins, plus our automatic water usage credit calculated directly on your invoice.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quote Form -->
+                <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                    <form id="quote-request-form" class="space-y-5">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-slate-300 uppercase mb-2">Full Name *</label>
+                                <input type="text" id="name" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-xs font-semibold text-slate-300 uppercase mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" required placeholder="(573) 000-0000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="email" class="block text-xs font-semibold text-slate-300 uppercase mb-2">Email Address *</label>
+                                <input type="email" id="email" required placeholder="john@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="address" class="block text-xs font-semibold text-slate-300 uppercase mb-2">St. James Property Address</label>
+                                <input type="text" id="address" placeholder="123 Main St, St James MO" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Services Needed (Select all that apply)</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 cursor-pointer hover:border-slate-700">
+                                    <input type="checkbox" name="services" value="House/Siding Washing" class="accent-sky-500">
+                                    House/Siding
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 cursor-pointer hover:border-slate-700">
+                                    <input type="checkbox" name="services" value="Sidewalks" class="accent-sky-500">
+                                    Sidewalks
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 cursor-pointer hover:border-slate-700">
+                                    <input type="checkbox" name="services" value="Brickwork" class="accent-sky-500">
+                                    Brickwork
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 cursor-pointer hover:border-slate-700">
+                                    <input type="checkbox" name="services" value="Porches/Decks" class="accent-sky-500">
+                                    Porch / Deck
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 cursor-pointer hover:border-slate-700">
+                                    <input type="checkbox" name="services" value="Driveway/Patio" class="accent-sky-500">
+                                    Driveway / Patio
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 cursor-pointer hover:border-slate-700">
+                                    <input type="checkbox" name="services" value="Other" class="accent-sky-500">
+                                    Other / Commercial
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="notes" class="block text-xs font-semibold text-slate-300 uppercase mb-2">Project Details or Notes</label>
+                            <textarea id="notes" rows="3" placeholder="Tell us about the project size, heavily stained areas, or preferred service dates..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-lg rounded-xl shadow-lg shadow-sky-500/20 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Free Quote Request</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-20 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Local Satisfaction</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">What St. James Neighbors Say</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="flex text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6">"Did an amazing job on our brick front porch and long concrete driveway! Super honest about the water usage discount and gave a fantastic rate."</p>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Mike T.</h4>
+                        <span class="text-xs text-slate-400">Saint James Resident</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="flex text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6">"Our vinyl siding had green algae on the north side of the house. He soft-washed it completely clean in under two hours. Highly recommend!"</p>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Sarah L.</h4>
+                        <span class="text-xs text-slate-400">Phelps County Homeowner</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="flex text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6">"Quick response to my text for a quote on our sidewalk and back patio. Very professional work and fair pricing."</p>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">David R.</h4>
+                        <span class="text-xs text-slate-400">St. James, MO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Got Questions?</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:text-sky-400 transition-colors">
+                        <span>How does the Water Usage Credit discount work on my bill?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-400 text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                        We connect directly to your outdoor water supply during the job. Because we utilize your water source, we estimate or meter the total gallons used and apply a direct discount/credit off your final quote!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:text-sky-400 transition-colors">
+                        <span>Will high pressure damage my vinyl siding or delicate brick?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-400 text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                        No! For vinyl siding, painted surfaces, and soft brick, we utilize gentle **Soft Wash** low-pressure methods combined with eco-friendly cleaning detergents. High pressure is reserved strictly for tough surfaces like solid concrete driveways and sidewalks.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:text-sky-400 transition-colors">
+                        <span>Are estimates really 100% free with no obligation?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-400 text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                        Yes! All quotes in Saint James, MO and nearby surrounding areas are completely free. You can use our online calculator for a quick estimate or call/text us directly at (573) 647-4453.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full p-6 text-left flex justify-between items-center text-white font-semibold hover:text-sky-400 transition-colors">
+                        <span>Do I need to be home while you power wash?</span>
+                        <i class="fa-solid fa-chevron-down text-sky-400 text-sm transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/50 pt-4">
+                        As long as windows and outdoor water spigots are accessible and unlocked, you do not necessarily have to be home during service!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-800 pb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500 flex items-center justify-center text-slate-950 font-bold">
+                        <i class="fa-solid fa-water-ladder text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold text-white block leading-none">ST. JAMES POWER WASHING</span>
+                        <span class="text-xs text-sky-400">Professional Pressure Washing Services</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-6 font-medium text-xs sm:text-sm">
+                    <a href="tel:5736474453" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-phone text-sky-400 mr-1"></i> (573) 647-4453</a>
+                    <a href="mailto:jax2holt@gmail.com" class="hover:text-sky-400 transition-colors"><i class="fa-solid fa-envelope text-sky-400 mr-1"></i> jax2holt@gmail.com</a>
+                    <span><i class="fa-solid fa-location-dot text-sky-400 mr-1"></i> Saint James, MO</span>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-slate-500">
+                <p>&copy; <span id="current-year"></span> Saint James Power Washing. All rights reserved. Free Quotes & Fair Water Usage Credit Guarantee.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Sticky Mobile Phone CTA -->
+    <div class="sm:hidden fixed bottom-4 right-4 left-4 z-40">
+        <a href="tel:5736474453" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold py-3 px-6 rounded-2xl shadow-2xl flex items-center justify-center gap-3 border border-sky-400/30">
+            <i class="fa-solid fa-phone animate-bounce"></i>
+            <span>Call For Free Quote: (573) 647-4453</span>
+        </a>
+    </div>
+
+    <!-- Quote Submitted Confirmation Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-sky-500/30 rounded-3xl p-8 max-w-md w-full text-center shadow-2xl relative">
+            <div class="w-16 h-16 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Quote Request Sent!</h3>
+            <p class="text-slate-300 text-sm mb-6">
+                Thank you! We received your quote request and will get back to you shortly at <strong id="modal-user-contact" class="text-sky-400"></strong>.
+            </p>
+            <button id="close-modal-btn" class="w-full py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl transition-all">
+                Got It, Thanks!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Set Dynamic Copyright Year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Mobile Navigation Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // FAQ Accordion Interaction
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('i');
+                    
+                    // Toggle current faq
+                    content.classList.toggle('hidden');
+                    if (icon) {
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+            });
+
+            // --- Interactive Before & After Image Comparison Slider Logic ---
+            function initImageSliders() {
+                const sliders = [
+                    { container: 'slider-1', overlay: 'overlay-1', handle: 'handle-1' },
+                    { container: 'slider-2', overlay: 'overlay-2', handle: 'handle-2' }
+                ];
+
+                sliders.forEach(slider => {
+                    const container = document.getElementById(slider.container);
+                    const overlay = document.getElementById(slider.overlay);
+                    const handle = document.getElementById(slider.handle);
+
+                    if (!container || !overlay || !handle) return;
+
+                    let isDragging = false;
+
+                    function slideMove(x) {
+                        const rect = container.getBoundingClientRect();
+                        let position = x - rect.left;
+                        if (position < 0) position = 0;
+                        if (position > rect.width) position = rect.width;
+
+                        const percentage = (position / rect.width) * 100;
+                        overlay.style.width = percentage + '%';
+                        handle.style.left = percentage + '%';
+                    }
+
+                    // Mouse Events
+                    handle.addEventListener('mousedown', (e) => { isDragging = true; e.preventDefault(); });
+                    window.addEventListener('mouseup', () => { isDragging = false; });
+                    container.addEventListener('mousemove', (e) => {
+                        if (!isDragging) return;
+                        slideMove(e.clientX);
+                    });
+
+                    // Touch Events for Mobile
+                    handle.addEventListener('touchstart', () => { isDragging = true; });
+                    window.addEventListener('touchend', () => { isDragging = false; });
+                    container.addEventListener('touchmove', (e) => {
+                        if (!isDragging) return;
+                        if (e.touches && e.touches[0]) {
+                            slideMove(e.touches[0].clientX);
+                        }
+                    });
+                });
+            }
+            initImageSliders();
+
+            // --- Cost & Water Credit Estimator Calculator Logic ---
+            const surfaceBtns = document.querySelectorAll('.surface-btn');
+            const sqftSlider = document.getElementById('sqft-slider');
+            const sqftDisplay = document.getElementById('sqft-display');
+            const waterToggle = document.getElementById('water-credit-toggle');
+
+            const calcSurfaceName = document.getElementById('calc-surface-name');
+            const calcBasePrice = document.getElementById('calc-base-price');
+            const calcGallons = document.getElementById('calc-gallons');
+            const calcCreditAmount = document.getElementById('calc-credit-amount');
+            const calcFinalPrice = document.getElementById('calc-final-price');
+
+            let currentRate = 0.18; // Default house siding rate
+            let currentWaterRate = 0.015;
+            let currentSurfaceText = 'House Siding';
+
+            // Select Surface buttons click handler
+            surfaceBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    surfaceBtns.forEach(b => {
+                        b.classList.remove('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+                        b.classList.add('border-slate-700', 'bg-slate-800', 'text-slate-300');
+                    });
+                    btn.classList.add('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+                    btn.classList.remove('border-slate-700', 'bg-slate-800', 'text-slate-300');
+
+                    currentRate = parseFloat(btn.getAttribute('data-rate'));
+                    currentWaterRate = parseFloat(btn.getAttribute('data-water'));
+                    currentSurfaceText = btn.textContent.trim();
+                    calculateEstimate();
+                });
+            });
+
+            if (sqftSlider) {
+                sqftSlider.addEventListener('input', calculateEstimate);
+            }
+            if (waterToggle) {
+                waterToggle.addEventListener('change', calculateEstimate);
+            }
+
+            function calculateEstimate() {
+                if (!sqftSlider) return;
+                const sqft = parseInt(sqftSlider.value);
+                sqftDisplay.textContent = sqft.toLocaleString() + ' sq ft';
+
+                // Calculate base price
+                let rawBase = sqft * currentRate;
+                if (rawBase < 95) rawBase = 95; // minimum callout fee
+
+                // Estimate Gallons used (~0.15 gallons per sqft average)
+                const estimatedGallons = Math.round(sqft * 0.15);
+                
+                // Calculate Water Discount Credit
+                const applyCredit = waterToggle ? waterToggle.checked : true;
+                const creditValue = applyCredit ? Math.round(estimatedGallons * 0.10) : 0; // $0.10 equivalent per gallon credit bonus
+
+                const finalBase = rawBase - creditValue;
+                const lowRange = Math.max(85, Math.round(finalBase * 0.9));
+                const highRange = Math.round(finalBase * 1.1);
+
+                // Update UI elements
+                if (calcSurfaceName) calcSurfaceName.textContent = currentSurfaceText;
+                if (calcBasePrice) calcBasePrice.textContent = '$' + rawBase.toFixed(2);
+                if (calcGallons) calcGallons.textContent = '~' + estimatedGallons + ' Gallons';
+                if (calcCreditAmount) calcCreditAmount.textContent = applyCredit ? '-$' + creditValue.toFixed(2) : '$0.00';
+                if (calcFinalPrice) calcFinalPrice.textContent = '$' + lowRange + ' - $' + highRange;
+            }
+
+            // Initial calculation run
+            calculateEstimate();
+
+            // --- Form Submission Handling ---
+            const quoteForm = document.getElementById('quote-request-form');
+            const confirmationModal = document.getElementById('confirmation-modal');
+            const modalUserContact = document.getElementById('modal-user-contact');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            if (quoteForm) {
+                quoteForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const email = document.getElementById('email').value;
+
+                    if (modalUserContact) {
+                        modalUserContact.textContent = phone || email;
+                    }
+
+                    if (confirmationModal) {
+                        confirmationModal.classList.remove('hidden');
+                    }
+
+                    quoteForm.reset();
+                });
+            }
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', () => {
+                    confirmationModal.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
